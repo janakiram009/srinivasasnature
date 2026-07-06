@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['virginpreps.com']
+ALLOWED_HOSTS = ['virginpreps.com', 'www.virginpreps.com', 'srinivasasnature.com', 'www.srinivasasnature.com',]
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
