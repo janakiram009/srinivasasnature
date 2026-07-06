@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.env
+.venv-oscar/
+venv/
+*.log
+*.zip
+.venv/
