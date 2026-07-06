@@ -3,6 +3,8 @@ babel==2.18.0
 certifi==2026.6.17
 charset-normalizer==3.4.7
 Django==5.2.15
+django-environ==0.14.0
+django-extensions==4.1
 django-extra-views==0.16.0
 django-haystack==3.4.0
 django-oscar==4.1
@@ -27,3 +29,4 @@ sorl-thumbnail==13.0.0
 sqlparse==0.5.5
 urllib3==2.7.0
 whitenoise==6.12.0
+Whoosh==2.7.4

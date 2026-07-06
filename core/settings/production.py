@@ -3,7 +3,9 @@ from .base import *
 DEBUG = False
 ALLOWED_HOSTS = ['virginpreps.com', 'www.virginpreps.com', 'srinivasasnature.com', 'www.srinivasasnature.com',]
 
-SECRET_KEY = os.environ['SECRET_KEY']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+SECRET_KEY = env('SECRET_KEY')
 
 # DATABASES = {
 #     'default': {
@@ -28,6 +30,5 @@ DATABASES = {
     }
 }
 
-RAZORPAY_KEY_ID = os.environ["RAZORPAY_KEY_ID"]
-RAZORPAY_KEY_SECRET = os.environ["RAZORPAY_KEY_SECRET"]
-RAZORPAY_WEBHOOK_SECRET = os.environ["RAZORPAY_WEBHOOK_SECRET"]
+RAZORPAY_KEY_ID = env("RAZORPAY_KEY_ID")
+RAZORPAY_KEY_SECRET = env("RAZORPAY_KEY_SECRET")

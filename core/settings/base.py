@@ -1,17 +1,13 @@
 import os
 from pathlib import Path
+import environ
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# SECURITY WARNING: keep the secret key used in production secret!
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-o3jovm^fcn_84s41^8s56msca213+1a@%802iq!qdp0jbhbi+9')
 
-DEBUG = False
+env = environ.Env()
+environ.Env.read_env(BASE_DIR / ".env")
 
-ALLOWED_HOSTS = []
-
-# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -142,7 +138,6 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -155,21 +150,32 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 from oscar.defaults import *
 
+# Haystack Search Connections Configuration
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     },
 }
+# Automatically update search indices when models change
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-# settings.py
+OSCAR_SHOP_NAME = "Srinivasa's Nature"
+# OSCAR_SHOP_TAGLINE = "All kinds of books!"
 
-# RAZORPAY_KEY_ID = "rzp_live_T8EzsO6u4EAkTC"
-# RAZORPAY_KEY_SECRET = "UVL7KDjxp89QPLMghBuiKEVC"
+OSCAR_DEFAULT_CURRENCY = 'INR'
+
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'postcode')
+OSCAR_ALLOW_ANON_REVIEWS = False
+OSCAR_MODERATE_REVIEWS = True
 
 RAZORPAY_KEY_ID = "rzp_test_T911PLZUCPxtCv"
 RAZORPAY_KEY_SECRET = "iFvQ6H0au0szYhhwRvYzU6lm"
