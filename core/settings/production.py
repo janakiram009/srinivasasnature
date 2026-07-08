@@ -3,7 +3,6 @@ from .base import *
 DEBUG = False
 ALLOWED_HOSTS = ['virginpreps.com', 'www.virginpreps.com', 'srinivasasnature.com', 'www.srinivasasnature.com',]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 SECRET_KEY = env('SECRET_KEY')
 
