@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'django_tables2',
     'django_extensions',
+    'django_cotton',
 ]
 
 SITE_ID = 1
