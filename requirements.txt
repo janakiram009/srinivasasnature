@@ -3,6 +3,7 @@ babel==2.18.0
 certifi==2026.6.17
 charset-normalizer==3.4.7
 Django==5.2.15
+django-cotton==2.7.2
 django-debug-toolbar==7.0.0
 django-environ==0.14.0
 django-extensions==4.1
