@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['virginpreps.com', 'www.virginpreps.com', 'srinivasasnature.com', 'www.srinivasasnature.com',]
+ALLOWED_HOSTS = ['srinivasasnature.com', 'www.srinivasasnature.com',]
 
 
 SECRET_KEY = env('SECRET_KEY')
@@ -9,11 +9,11 @@ SECRET_KEY = env('SECRET_KEY')
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('DB_NAME', 'yourdb'),
+#         'NAME': os.environ.get('MYSQL_DATABASE', 'yourdb'),
 #         'USER': os.environ.get('DB_USER', 'youruser'),
 #         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
 #         'HOST': os.environ.get('DB_HOST', 'localhost'),
-#         'PORT': os.environ.get('DB_PORT', '5432'),
+#         'PORT': os.environ.get('MYSQL_PORT', '5432'),
 #     }
 # }
 
