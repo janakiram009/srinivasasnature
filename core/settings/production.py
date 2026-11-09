@@ -1,8 +1,10 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['srinivasasnature.com', 'www.srinivasasnature.com',]
-
+ALLOWED_HOSTS = [
+    "srinivasasnature.com",
+    "www.srinivasasnature.com",
+]
 
 SECRET_KEY = env('SECRET_KEY')
 
